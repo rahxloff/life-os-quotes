@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Quote of the Day</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body{
+
+background:#191919;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+padding:20px;
+
+}
+
+.card{
+
+width:100%;
+max-width:650px;
+
+background:#202020;
+
+border:1px solid #343434;
+
+border-radius:24px;
+
+padding:60px 50px;
+
+text-align:center;
+
+}
+
+.icon{
+
+font-size:42px;
+
+margin-bottom:25px;
+
+}
+
+.title{
+
+font-size:20px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+margin-bottom:35px;
+
+}
+
+.line{
+
+height:1px;
+
+background:#333;
+
+margin:30px 0;
+
+}
+
+#quote{
+
+font-size:48px;
+
+font-weight:800;
+
+line-height:1.35;
+
+min-height:220px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+transition:.25s;
+
+}
+
+button{
+
+margin-top:35px;
+
+padding:18px 36px;
+
+font-size:22px;
+
+font-weight:700;
+
+background:#242424;
+
+color:white;
+
+border:1px solid #505050;
+
+border-radius:18px;
+
+cursor:pointer;
+
+transition:.2s;
+
+}
+
+button:hover{
+
+background:#2b2b2b;
+
+transform:translateY(-2px);
+
+}
+
+button:active{
+
+transform:scale(.98);
+
+}
+
+@media(max-width:700px){
+
+#quote{
+
+font-size:34px;
+
+}
+
+.card{
+
+padding:40px 25px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="icon">❝</div>
+
+<div class="title">
+QUOTE OF THE DAY
+</div>
+
+<div class="line"></div>
+
+<div id="quote"></div>
+
+<div class="line"></div>
+
+<button onclick="newQuote()">
+
+↻ New Quote
+
+</button>
+
+</div>
+
+<script>
+
+const quotes=[
+
+"Don't take advice from people living a life you don't want.",
+
+"Discipline creates freedom.",
+
+"Execution beats motivation.",
+
+"Protect your capital. Grow your edge.",
+
+"Become the person your goals require.",
+
+"Your systems determine your success."
+
+];
+
+let remaining=[...quotes];
+
+function newQuote(){
+
+if(remaining.length===0){
+
+remaining=[...quotes];
+
+}
+
+let i=Math.floor(Math.random()*remaining.length);
+
+document.getElementById("quote").textContent=remaining[i];
+
+remaining.splice(i,1);
+
+}
+
+newQuote();
+
+</script>
+
+</body>
+
+</html>
